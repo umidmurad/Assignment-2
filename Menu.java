@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Scanner;
 
 /*     -Menu options
@@ -36,7 +34,8 @@ public class Menu extends DataLoader{
 
             }
             searchNumber++;
-            System.out.println(separator + " " + separator.size()); // line not necessary, just to see if logic is right
+            System.out.println("Array content "+ separator + ".\t" + "Array size: "
+                    + separator.size()); // line not necessary, just to see if logic is right
 
         }
     }
@@ -51,6 +50,7 @@ public class Menu extends DataLoader{
         for (int i = 0; i < tempHolder.length; i++) {
             if (tempHolder[i].equals(""))
                 continue;
+            tempHolder[i] = tempHolder[i].strip();
             separator.add(tempHolder[i]);
         }
     return separator;

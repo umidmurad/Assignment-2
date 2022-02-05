@@ -2,9 +2,12 @@ public class Enum {
 
 
     enum Dictionary {
-        Word1("Book", "noun", "To be updated"),
-        Word2("Book", "noun", "To be updated"),
-        Reverse1("Reverse", "noun", "To be Updated"); //Testing
+        Word1("Book", "noun", "test1"),
+        Word2("Book", "noun", "test2"),
+        Word3("Book", "adjective", "test3"),
+        Reverse1("Book", "verb", "test2"),
+        Reverse2("Book", "verb", "To be Updated"), //Testing
+        Distinct("Book", "verb", "test2");
 
         String word, pos, def;
 

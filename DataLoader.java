@@ -22,7 +22,7 @@ public class DataLoader extends Enum {
     // word and search option i.e reverse, distinct, noun, etc
     public void secondCase(String word, String spch) {
         copyAllWords = distinct(word);
-        /*allWordsPrinter(copyAllWords, word);*/
+        allWordsPrinter(copyAllWords, word);
     }
 
     public void thirdCase(String word, String spch, String distinct) {
@@ -56,17 +56,15 @@ public class DataLoader extends Enum {
     public ArrayList<String[]> looper(ArrayList<String[]> values) {
         int j = 0; // 2 , i = 2
         if (values.size() > 1) {
-            for (int i = 0; i < values.size(); i++) {
-                if (values.get(j)[1].equals(values.get(i)[1])) {
+            for (int i = 1; i < values.size(); i++) {
+                if (values.get(j)[0].equals(values.get(i)[0]) && values.get(j)[1].equals(values.get(i)[1])) {
                     values.remove(j); // This line will delete duplicated definitio
-                    j++;
-                    System.out.println(values.get(j)[1] + "  NEW : NEW  " + values.get(i)[1]);
+                    i--;
                     continue;
                 }
                 j++;
             }
         }
-        System.out.println(values.get(5)[1] + "  : " + values.get(6)[1]);
         return values;
     }
 

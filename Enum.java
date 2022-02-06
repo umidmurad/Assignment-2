@@ -39,8 +39,8 @@ public class Enum {
         REVERSE3("Reverse", "noun", "A dictionary program's parameter."),
         REVERSE4("Reverse", "noun", "Change to opposite direction."),
         REVERSE5("Reverse", "noun", "The opposite."),
-        REVERSE6("Reverse", "noun", "To be updated..."), //j
-        REVERSE7("Reverse", "noun", "To be updated..."), // i
+        REVERSE6("Reverse", "noun", "To be updated..."), //j = 5
+        REVERSE7("Reverse", "noun", "To be updated..."), // i = 6
         REVERSE8("Reverse", "noun", "To be updated..."),
         REVERSE9("Reverse", "noun", "To be updated..."),
         REVERSE10("Reverse", "verb", "Change something to opposite."),

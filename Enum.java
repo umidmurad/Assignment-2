@@ -14,15 +14,15 @@ public class Enum {
         BOOK1("Book", "noun", "A set of pages."),
         BOOK2("Book", "noun", "A written work published in printed or electronic form."),
         BOOK3("Book", "verb", "To arrange for someone to have a seat on a plane."),
-        BOOK4("Book","verb", "To arrange something on a particular data."),
+        BOOK4("Book", "verb", "To arrange something on a particular data."),
         DISTINCT1("Distinct", "adjective", "Familiar. Worked in Java."),
         DISTINCT2("Distinct", "adjective", "Unique. No duplicates. Clearly different or of a different kind."),
         DISTINCT3("Distinct", "adverb", "Uniquely. Written as distinctly"),
-        DISTINCT4("Distinct", "noun","A keyword in this assignment."),
-        DISTINCT5("Distinct", "noun","A keyword in this assignment."),
-        DISTINCT6("Distinct", "noun","A keyword in this assignment."),
-        DISTINCT7("Distinct", "noun","An advanced search option."),
-        DISTINCT8("Distinct", "noun","Distinct is a parameter in this assignment."),
+        DISTINCT4("Distinct", "noun", "A keyword in this assignment."),
+        DISTINCT5("Distinct", "noun", "A keyword in this assignment."),
+        DISTINCT6("Distinct", "noun", "A keyword in this assignment."),
+        DISTINCT7("Distinct", "noun", "An advanced search option."),
+        DISTINCT8("Distinct", "noun", "Distinct is a parameter in this assignment."),
         PLACEHOLDER1("Placeholder", "adjective", "To be updated..."),
         PLACEHOLDER2("Placeholder", "adjective", "To be updated..."),
         PLACEHOLDER3("Placeholder", "adverb", "To be updated..."),
@@ -39,8 +39,8 @@ public class Enum {
         REVERSE3("Reverse", "noun", "A dictionary program's parameter."),
         REVERSE4("Reverse", "noun", "Change to opposite direction."),
         REVERSE5("Reverse", "noun", "The opposite."),
-        REVERSE6("Reverse", "noun", "To be updated..."),
-        REVERSE7("Reverse", "noun", "To be updated..."),
+        REVERSE6("Reverse", "noun", "To be updated..."), //j
+        REVERSE7("Reverse", "noun", "To be updated..."), // i
         REVERSE8("Reverse", "noun", "To be updated..."),
         REVERSE9("Reverse", "noun", "To be updated..."),
         REVERSE10("Reverse", "verb", "Change something to opposite."),
@@ -61,7 +61,7 @@ public class Enum {
         HUMAN2("Human", "noun", "a human being, especially a person as distinguished from an animal or (in science fiction) an alien."),
         ALIEN1("Alien", "adjective", "belonging to a foreign country or nation."),
         ALIEN2("Alien", "noun", "a foreigner, especially one who is not a naturalized citizen of the country where they are living."),
-        PIQUE1("Pique", "noun","a feeling of irritation or resentment resulting from a slight, especially to one's pride."),
+        PIQUE1("Pique", "noun", "a feeling of irritation or resentment resulting from a slight, especially to one's pride."),
         PIQUE2("Pique", "verb", "stimulate (interest or curiosity)."),
         SALMON("Salmon", "noun", "any of a number of fishes that resemble the true salmons."),
         WAR1("War", "noun", "a state of armed conflict between different nations or states or different groups within a nation or state."),
@@ -74,14 +74,12 @@ public class Enum {
 
         String word, pos, def;
 
-        Dictionary(String w, String p, String d)
-        {
+        Dictionary(String w, String p, String d) {
             word = w;
             pos = p;
             def = d;
         }
     }
-
 
 
 }

@@ -19,16 +19,30 @@ public class DataLoader extends Enum {
 
     // word and search option i.e reverse, distinct, noun, etc
     public void secondCase(String word, String spch) {
-        //copyAllWords = allWords;
-        copyAllWords = distinct(copyAllWords, word);
-        allWordsPrinter(copyAllWords, word);
-
-
-        //allWordsPrinter(allWords, word);
+        //handler(spch, 1);
     }
+    // [ spch, dsct, rvers]
+
+    /*public void handler(String input, int optionNumber){
+        String [] options = {"any", "Distinct", "Reverse"};
+
+        switch (options[optionNumber]){
+            case "any": if(input.equals("distinct")) distinct(allWords,input);
+            if(input.equals("Reverse")) reverse();
+            if(input.equals("noun")) noun();
+            break;
+            case "Distinct/Reverse": if(input.equals("Distinct")) distinct(allWords, input);
+                if(input.equals("Reverse")) distinct(allWords, input);
+                break;
+            case "Reverse": reverse();
+
+
+        }
+         }*/
 
     public void thirdCase(String word, String spch, String distinct) {
-
+        /*handler(spch,1);
+        handler(distinct, 2);*/
     }
 
     public void fourthCase(String word, String spch, String distinct, String reverse) {

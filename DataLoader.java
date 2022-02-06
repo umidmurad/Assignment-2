@@ -4,10 +4,8 @@ import java.util.HashMap;
 public class DataLoader extends Enum {
     Dictionary[] enums = Dictionary.values(); //
     HashMap<String, ArrayList<String[]>> allWords = dataLoader();
-
     //// copyAllWords will be used to change values without changing original
     HashMap<String, ArrayList<String[]>> copyAllWords = (HashMap<String, ArrayList<String[]>>) allWords.clone();
-
     //Function to test DataLoader Class
     public void testDataLoader() {
         System.out.println(enums[2]); // test[0] holds Book1
@@ -16,13 +14,17 @@ public class DataLoader extends Enum {
 
     // first case is for when only word is inputted
     public void firstCase(String word) {
-
+        allWordsPrinter(allWords,word);
     }
 
     // word and search option i.e reverse, distinct, noun, etc
     public void secondCase(String word, String spch) {
-        copyAllWords = distinct(word);
+        //copyAllWords = allWords;
+        copyAllWords = distinct(copyAllWords, word);
         allWordsPrinter(copyAllWords, word);
+
+
+        //allWordsPrinter(allWords, word);
     }
 
     public void thirdCase(String word, String spch, String distinct) {
@@ -42,14 +44,13 @@ public class DataLoader extends Enum {
         copyAllWords = (HashMap<String, ArrayList<String[]>>) allWords.clone();
     }
 
-    public HashMap<String, ArrayList<String[]>> distinct(String word) {
+    public HashMap<String, ArrayList<String[]>> distinct(HashMap<String, ArrayList<String[]>> copy, String word) {
         word = reWriter(word);
-        copyAllWords = (HashMap<String, ArrayList<String[]>>) allWords.clone();
-        ArrayList<String[]> values = allWords.get(word);
+        copy = copyAllWords;
+        ArrayList<String[]> values = (ArrayList<String[]>) copy.get(word).clone();
         values = looper(values);
-        copyAllWords.replace(word, values);
-
-        return copyAllWords;
+        copy.replace(word, values);
+        return copy;
 
     }
 
@@ -68,17 +69,19 @@ public class DataLoader extends Enum {
         return values;
     }
 
-    public void allWordsPrinter(HashMap<String, ArrayList<String[]>> copyAllWords, String word) {
+    public void allWordsPrinter(HashMap<String, ArrayList<String[]>> copy, String word) {
         ArrayList<String[]> values;
         word = reWriter(word);
-        values = copyAllWords.get(word);
+        values = copy.get(word);
+        System.out.println("|");
         for (int i = 0; i < values.size(); i++) {
             String spch = values.get(i)[0];
             String def = values.get(i)[1];
 
-            System.out.println("\n|\n " + word + " [" + spch + "] :" + def);
+            System.out.println(" " + word + " [" + spch + "] : " + def);
             // Reverse [verb] : lTurn something inside out.
         }
+        System.out.print("|\n");
     }
 
     // reWriter will take: ReVerSE adn will make it --> Reverse
@@ -118,8 +121,7 @@ public class DataLoader extends Enum {
         System.out.println(allWords.get("Book").get(2)[0]); // line not necessary just to test logic
         return allWords;
     }
-
-
 }
+
 
 

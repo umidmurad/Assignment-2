@@ -40,9 +40,6 @@ public class Menu extends DataLoader {
 
             }
             searchNumber++;
-            System.out.println("Array content " + separator + ".\t" + "Array size: "
-                    + separator.size()); // line not necessary, just to see if logic is right
-
         }
     }
 

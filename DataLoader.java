@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 // Dictionary [] would return an array with all the Enums, they can be accessed through index
 public class DataLoader extends Enum {
@@ -54,8 +55,16 @@ public class DataLoader extends Enum {
 
     }
 
-    public void reverse() {
-        copyAllWords = (HashMap<String, ArrayList<String[]>>) allWords.clone();
+    public  HashMap<String, ArrayList<String[]>> reverse(HashMap<String, ArrayList<String[]>> copy, String word) {
+
+        word = reWriter(word);
+        copy = copyAllWords;
+        ArrayList<String[]> values = (ArrayList<String[]>) copy.get(word).clone();
+        Collections.reverse(values); //this line makes the list reversed
+        copy.replace(word,values);
+        return  copy;
+
+
     }
 
     public HashMap<String, ArrayList<String[]>> distinct(HashMap<String, ArrayList<String[]>> copy, String word) {

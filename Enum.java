@@ -10,8 +10,8 @@ public class Enum {
         Distinct("Book", "verb", "test4"),
         Distinct1("Book", "verb", "test5");/*/
 
-        ARROW("Arrow", "noun", "Here is one arrow: <IMG> -=>> </IMG>"),
-        BOOK1("Book", "noun", "A set of pages."),
+        // ARROW("Arrow", "noun", "Here is one arrow: <IMG> -=>> </IMG>"),
+        BOOK1("Book", "noun", "A set of pages."), // p = 0, def = 1
         BOOK2("Book", "noun", "A written work published in printed or electronic form."),
         BOOK3("Book", "verb", "To arrange for someone to have a seat on a plane."),
         BOOK4("Book", "verb", "To arrange something on a particular data."),

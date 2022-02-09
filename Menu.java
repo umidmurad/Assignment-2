@@ -11,8 +11,6 @@ public class Menu extends DataLoader {
     // function to Test the Menu class
     public void testMenu() {
         menuPrinter();
-        guidePrinter();
-
     }
 
     public void menuPrinter() {

@@ -24,6 +24,7 @@ public class DataLoader extends Enum {
     }
     // [ spch, dsct, rvers]
 
+
     /*public void handler(String input, int optionNumber){
         String [] options = {"any", "Distinct", "Reverse"};
 

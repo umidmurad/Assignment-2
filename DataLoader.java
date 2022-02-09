@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Locale;
+
 // Dictionary [] would return an array with all the Enums, they can be accessed through index
 public class DataLoader extends Enum {
     Dictionary[] enums = Dictionary.values(); //
@@ -8,6 +10,7 @@ public class DataLoader extends Enum {
     //// copyAllWords will be used to change values without changing original
     HashMap<String, ArrayList<String[]>> copyAllWords = (HashMap<String, ArrayList<String[]>>) allWords.clone();
     //Function to test DataLoader Class
+
     public void testDataLoader() {
         System.out.println(enums[2]); // test[0] holds Book1
         System.out.println(enums[0].def);// will print noun
@@ -20,27 +23,57 @@ public class DataLoader extends Enum {
 
     // word and search option i.e reverse, distinct, noun, etc
     public void secondCase(String word, String spch) {
-        //handler(spch, 1);
+        spch = spch.toLowerCase();
+        String[] option = handler(spch,1);
+        copyAllWords = (HashMap<String, ArrayList<String[]>>) allWords.clone();
+        if(option[0].equals("true") && option[1].equals("distinct"))
+            copyAllWords = distinct(copyAllWords,word);
+        else if(option[0].equals("true") && option[1].equals("reverse"))
+            copyAllWords = reverse(copyAllWords, word);
+        else if(option[0].equals("true"))
+            copyAllWords = lookUp(copyAllWords, spch);
+        else System.out.println("ERROR");
+        allWordsPrinter(copyAllWords,word);
+    }
+    public HashMap<String, ArrayList<String[]>> lookUp(HashMap<String, ArrayList<String[]>> copy, String spch){
+        return copy;
     }
     // [ spch, dsct, rvers]
-
-
-    /*public void handler(String input, int optionNumber){
-        String [] options = {"any", "Distinct", "Reverse"};
-
-        switch (options[optionNumber]){
-            case "any": if(input.equals("distinct")) distinct(allWords,input);
-            if(input.equals("Reverse")) reverse();
-            if(input.equals("noun")) noun();
+    public String[] handler (String option, int n_list){
+        Boolean checker = false;
+        ArrayList<String> spchType1 = new ArrayList<>();
+        ArrayList<String> distinct2 = new ArrayList<>();
+        ArrayList<String> reverse3 = new ArrayList<>();
+        String[] holder = new String[2];
+        String returner = "";
+        spchType1.add("verb"); // Book noun distinct    spch 1,
+        spchType1.add("noun");
+        spchType1.add("adjective");
+        spchType1.add("adverb");
+        spchType1.add("conjunction");
+        spchType1.add("interjection");
+        spchType1.add("preposition");
+        spchType1.add("pronoun");
+        spchType1.add("reverse"); // T, either reverse or distinct, wordloo(spch)
+        spchType1.add("distinct");
+        distinct2.add("distinct");
+        distinct2.add("reverse");
+        reverse3.add("reverse");
+        switch (n_list){
+            case 1: checker = spchType1.contains(option);
+                    returner = option;
             break;
-            case "Distinct/Reverse": if(input.equals("Distinct")) distinct(allWords, input);
-                if(input.equals("Reverse")) distinct(allWords, input);
-                break;
-            case "Reverse": reverse();
-
-
+            case 2: checker = distinct2.contains(option);
+                    returner = option;
+            break;
+            case 3: checker = reverse3.contains(option);
+                    returner = option;
+            break;
         }
-         }*/
+        holder[0] = checker.toString();
+        holder[1] = returner;
+        return holder;
+    }
 
     public void thirdCase(String word, String spch, String distinct) {
         /*handler(spch,1);
@@ -141,8 +174,6 @@ public class DataLoader extends Enum {
             calc += values2.size();
         }
         System.out.println("\n===== Dictionary 340 Java =====\n----- Keywords: " + allWords.size() + "\n----- Definitions: " + calc + "\n");
-
-        System.out.println(allWords.get("Book").get(2)[0]); // line not necessary just to test logic
         return allWords;
     }
 }

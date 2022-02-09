@@ -25,6 +25,7 @@ public class Menu extends DataLoader {
             switch (separator.size()) {
                 case 1:
                     firstCase(separator.get(0));
+
                     break;
                 case 2:
                     secondCase(separator.get(0), separator.get(1));

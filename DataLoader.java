@@ -64,7 +64,6 @@ public class DataLoader {
         ArrayList<String[]> values;
         String[] spchAndDef = new String[2]; //spchAndDef array holds pos and definition
         String word;
-        int calc = 0; // will keep track of definitions
         filler(); // fills up ArrayLists used to check position of keywords in errorChecker()
         System.out.println("! Loading Data..."); //starts to load the data
         for (int i = 0; i < enums.length; i++) {

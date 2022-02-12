@@ -55,7 +55,7 @@ public class DataLoader {
 
     public void merger(String word, String keyword, int caseNumber) {
             errorChecker(keyword, caseNumber); // will check if placement of keyword is valid
-            handler(word, keyword, caseNumber, copyAllWords); // if placement is valid, do whatever the keyword asks
+            handler(word, keyword, caseNumber); // if placement is valid, do whatever the keyword asks
         }
 
     // dataLoader reads all enums and uses word as key, and speech and definition as value.
@@ -83,7 +83,7 @@ public class DataLoader {
         return allWords;
     }
     // Handler will perform whatever entry asks i.e. reverse, distinct
-    private void handler(String word, String keyword, int n_list, HashMap<String, ArrayList<String[]>> copyAllWords) {
+    private void handler(String word, String keyword, int n_list) {
         keyword = keyword.toLowerCase();
         String[] option = handlerHelper(keyword, n_list);
         ArrayList<String[]> values = new ArrayList<>();

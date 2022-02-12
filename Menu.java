@@ -1,10 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-/*     -Menu options
-       -User will exit program with !q
-       -Empty entries, !help keyword, and words that do not exist
-        in the dictionary will display a guide
-*/
 public class Menu {
     DataLoader dataloader = new DataLoader();
 

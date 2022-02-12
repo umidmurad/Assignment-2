@@ -4,9 +4,11 @@ import java.util.HashMap;
 
 public class DataLoader {
     Enum.Dictionary[] enums = Enum.Dictionary.values();
+    // Lists that will hold available options for each entry
     ArrayList<String> spchType2 = new ArrayList<>();
     ArrayList<String> distinct3 = new ArrayList<>();
     ArrayList<String> reverse4 = new ArrayList<>();
+
     HashMap<String, ArrayList<String[]>> allWords = dataLoader();
     //// copyAllWords will be used to change values without changing original (deep copy)
     HashMap<String, ArrayList<String[]>> copyAllWords = new HashMap<>();
@@ -56,7 +58,6 @@ public class DataLoader {
             handler(word, keyword, caseNumber, copyAllWords); // if placement is valid, do whatever the keyword asks
         }
 
-
     // dataLoader reads all enums and uses word as key, and speech and definition as value.
     private HashMap<String, ArrayList<String[]>> dataLoader() {
         HashMap<String, ArrayList<String[]>> allWords = new HashMap<>();
@@ -77,10 +78,11 @@ public class DataLoader {
             } else allWords.get(word).add(spchAndDef.clone());
         }
         System.out.println("! Loading Completed...");
-        System.out.println("\n===== Dictionary 340 Java =====\n----- Keywords: " + allWords.size() + "\n----- Definitions: " + enums.length + "\n");
+        System.out.println("\n===== Dictionary 340 Java =====\n----- Keywords: " + allWords.size() +
+                "\n----- Definitions: " + enums.length + "\n");
         return allWords;
     }
-
+    // Handler will perform whatever entry asks i.e. reverse, distinct
     private void handler(String word, String keyword, int n_list, HashMap<String, ArrayList<String[]>> copyAllWords) {
         keyword = keyword.toLowerCase();
         String[] option = handlerHelper(keyword, n_list);
@@ -98,12 +100,12 @@ public class DataLoader {
             }
     }
 
-
+    // handlerHelper will check if entry is an available option.
     private String[] handlerHelper(String option, int n_list) {
         boolean checker = false;
         String[] holder = new String[2];
-        String returner = "";
-        switch (n_list) { // n_list will check if keyword used is an available option
+        String returner = ""; // will hold entry i.e. noun, reverse, distinct, etc
+        switch (n_list) { // n_list will tell us what list to search on
             case 2:
                 checker = spchType2.contains(option);
                 returner = option;
@@ -119,7 +121,7 @@ public class DataLoader {
         }
         holder[0] = Boolean.toString(checker);
         holder[1] = returner;
-        return holder;
+        return holder; //returning if entry was a valid (true or false) and the entry itself
     }
     // errorChecker will check if order of words inputted is right
     private void errorChecker(String finder, int n) {
@@ -149,6 +151,7 @@ public class DataLoader {
         Menu.guidePrinter();
     }
 
+    // search specific part of speech
     private void lookUp(String word, String spch){
         ArrayList<String[]> values = (ArrayList<String[]>) copyAllWords.get(word).clone();
         for (int i = 0; i < values.size(); i++) {

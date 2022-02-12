@@ -53,7 +53,7 @@ public class DataLoader {
         } else notAvailable();
     }
 
-    public void merger(String word, String keyword, int caseNumber) {
+    private void merger(String word, String keyword, int caseNumber) {
             errorChecker(keyword, caseNumber); // will check if placement of keyword is valid
             handler(word, keyword, caseNumber); // if placement is valid, do whatever the keyword asks
         }

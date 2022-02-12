@@ -5,8 +5,8 @@ import java.util.Scanner;
        -Empty entries, !help keyword, and words that do not exist
         in the dictionary will display a guide
 */
-public class Menu extends DataLoader {
-
+public class Menu {
+DataLoader dataloader = new DataLoader();
     public void testMenu() {
         menuPrinter();
     }
@@ -14,27 +14,30 @@ public class Menu extends DataLoader {
     public void menuPrinter() {
         Scanner input = new Scanner(System.in); // will hold whatever value user inputs
         int searchNumber = 1;
-        while (!input.equals("!q")) {
+        while (true) {
             System.out.print("Search [" + searchNumber + "]: ");
-//            if(input.equals("!help")){
-//                guidePrinter();
-//                searchNumber++;
-//                continue;
-//            }
             String holder = input.nextLine();
+            if(holder.equals("!q")){
+                System.out.println("-----Thank You-----");
+                System.exit(0);}
+            if(holder.equals("!help")){
+                guidePrinter();
+                searchNumber++;
+                continue;
+            }
             ArrayList<String> separator = optionReader(holder);
             switch (separator.size()) {
                 case 1:
-                    firstCase(separator.get(0));
+                    dataloader.firstCase(separator.get(0));
                     break;
                 case 2:
-                    secondCase(separator.get(0), separator.get(1));
+                    dataloader.secondCase(separator.get(0), separator.get(1));
                     break;
                 case 3:
-                    thirdCase(separator.get(0), separator.get(1), separator.get(2));
+                    dataloader.thirdCase(separator.get(0), separator.get(1), separator.get(2));
                     break;
                 case 4:
-                    fourthCase(separator.get(0), separator.get(1), separator.get(2), separator.get(3));
+                    dataloader.fourthCase(separator.get(0), separator.get(1), separator.get(2), separator.get(3));
                     break;
                 default:
                     guidePrinter();

@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Locale;
 
-public class DataLoader extends Enum {
-    Dictionary[] enums = Dictionary.values();
+public class DataLoader {
+    Enum.Dictionary[] enums = Enum.Dictionary.values();
     ArrayList<String> spchType1 = new ArrayList<>();
     ArrayList<String> distinct2 = new ArrayList<>();
     ArrayList<String> reverse3 = new ArrayList<>();
@@ -13,10 +14,6 @@ public class DataLoader extends Enum {
     //ArrayList<String> spchType1 = new ArrayList<>();
     // first case is for when only word is inputted
 
-//    public ArrayList<String> listof() {
-//        ArrayList<String> listof = new ArrayList<>();
-//        return listof;
-//    }
     public void filler(){
         spchType1.add("verb");
         spchType1.add("noun");
@@ -35,10 +32,12 @@ public class DataLoader extends Enum {
 
     public void firstCase(String word) {
         word = reWriter(word);
+        //System.out.println(word);
         if (allWords.containsKey(word)) {
             copyAllWords.put(word, allWords.get(word));
             allWordsPrinter(copyAllWords, word);
-        } else notavailable();
+        }
+        else notavailable();
     }
 
     public void secondCase(String word, String spch) {
@@ -86,8 +85,11 @@ public class DataLoader extends Enum {
     // errorChecker will check if order of words inputted is right
 
     public void errorChecker(String finder, Integer n) {
+        finder=finder.toLowerCase();
         if (!spchType1.contains(finder) && n==2) {
-            System.out.println("Speech error" + n + "attempt");
+            System.out.println("\t|\n\t<The entered " + n + "nd parameter '"+ finder + "' is NOT a part of speech.>\n" +
+                    "<The entered " + n + "nd parameter '" + finder +"' is NOT 'distinct'.>");
+
             //|
             //     <The entered 2nd parameter 'ok' is NOT a part of speech.>
             //     <The entered 2nd parameter 'ok' is NOT 'distinct'.>

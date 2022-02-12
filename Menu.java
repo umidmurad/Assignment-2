@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
 /*     -Menu options
        -User will exit program with !q
        -Empty entries, !help keyword, and words that do not exist
@@ -8,7 +7,6 @@ import java.util.Scanner;
 */
 public class Menu extends DataLoader {
 
-    // function to Test the Menu class
     public void testMenu() {
         menuPrinter();
     }
@@ -18,12 +16,16 @@ public class Menu extends DataLoader {
         int searchNumber = 1;
         while (!input.equals("!q")) {
             System.out.print("Search [" + searchNumber + "]: ");
+//            if(input.equals("!help")){
+//                guidePrinter();
+//                searchNumber++;
+//                continue;
+//            }
             String holder = input.nextLine();
             ArrayList<String> separator = optionReader(holder);
             switch (separator.size()) {
                 case 1:
                     firstCase(separator.get(0));
-
                     break;
                 case 2:
                     secondCase(separator.get(0), separator.get(1));
@@ -58,7 +60,7 @@ public class Menu extends DataLoader {
         return separator;
     }
 
-    public void guidePrinter() {
+    public static void guidePrinter() {
         String guide = "\t|\n \t PARAMETER HOW-TO, please enter:\n" +
                 "\t 1. A search key -then 2. An optional part of speech -then\n" +
                 "\t 3. An optional 'distinct' -then 4. An optional 'reverse'\n \t|";

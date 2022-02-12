@@ -6,10 +6,7 @@ import java.util.Scanner;
         in the dictionary will display a guide
 */
 public class Menu {
-DataLoader dataloader = new DataLoader();
-    public void testMenu() {
-        menuPrinter();
-    }
+    DataLoader dataloader = new DataLoader();
 
     public void menuPrinter() {
         Scanner input = new Scanner(System.in); // will hold whatever value user inputs
@@ -26,7 +23,7 @@ DataLoader dataloader = new DataLoader();
                 continue;
             }
             ArrayList<String> separator = optionReader(holder);
-            switch (separator.size()) {
+            switch(separator.size()) {
                 case 1:
                     dataloader.firstCase(separator.get(0));
                     break;
@@ -46,13 +43,19 @@ DataLoader dataloader = new DataLoader();
             searchNumber++;
         }
     }
-
+    public static void guidePrinter() {
+        String guide = "\t|\n \t PARAMETER HOW-TO, please enter:\n" +
+                "\t 1. A search key -then 2. An optional part of speech -then\n" +
+                "\t 3. An optional 'distinct' -then 4. An optional 'reverse'\n \t|";
+        System.out.println(guide);
+    }
     /* -Will simply separate users input into an array separated by " ". if an extra " "
-      is inputted, it will strip it out (we do not want spaces counting as search options like: reverse    reverse == reverse reverse)
-       - returns an ArrayList<String>, each index holds a search option, i.e (reverse, distinct, reVERSE)
+      is inputted. Returns an ArrayList<String>, each index holds a search option, i.e (reverse, distinct, reVERSE)
     */
     protected ArrayList<String> optionReader(String user) {
         String[] tempHolder = user.split(" ");
+        if (tempHolder[0].length()> 0)
+            tempHolder[0] = reWriter(tempHolder[0]);
         ArrayList<String> separator = new ArrayList<>();
         for (int i = 0; i < tempHolder.length; i++) {
             if (tempHolder[i].equals(""))
@@ -62,12 +65,11 @@ DataLoader dataloader = new DataLoader();
         }
         return separator;
     }
-
-    public static void guidePrinter() {
-        String guide = "\t|\n \t PARAMETER HOW-TO, please enter:\n" +
-                "\t 1. A search key -then 2. An optional part of speech -then\n" +
-                "\t 3. An optional 'distinct' -then 4. An optional 'reverse'\n \t|";
-        System.out.println(guide);
+    // reWriter will take: ReVerSE adn will make it --> Reverse
+    public String reWriter(String word) {
+        word = word.toLowerCase();
+        word = word.substring(0, 1).toUpperCase() + word.substring(1);
+        return word;
     }
 }
 

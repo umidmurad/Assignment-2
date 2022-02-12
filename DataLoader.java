@@ -127,23 +127,23 @@ public class DataLoader {
         finder=finder.toLowerCase();
         if (!spchType2.contains(finder) && n==2) {
             System.out.println("\t|\n\t<The entered " + n + "nd parameter '"+ finder + "' is NOT a part of speech.>\n" +
-                    "<The entered " + n + "nd parameter '" + finder +"' is NOT 'distinct'.>");
-
-            //|
-            //     <The entered 2nd parameter 'ok' is NOT a part of speech.>
-            //     <The entered 2nd parameter 'ok' is NOT 'distinct'.>
-            //     <The entered 2nd parameter 'ok' is NOT 'reverse'.>
-            //     <The entered 2nd parameter 'ok' was disregarded.>
-            //     <The 2nd parameter should be a part of speech or 'distinct' or 'reverse'.>
+                    "\t<The entered " + n + "nd parameter '" + finder +"' is NOT 'distinct'.>\n" +
+                    "\t<The entered " + n + "nd parameter '" + finder + "' is NOT 'reverse'.>\n" +
+                    "\t<The entered " + n + "nd parameter '" + finder + "' was disregarded.>\n" +
+                    "\t<The "+ n +"nd parameter should be a part of speech or 'distinct' or 'reverse'.>\n\t|");
         }
         else if(!distinct3.contains(finder) && n==3){
-            System.out.println("Speech error" + n + "Attempt");
+            System.out.println("\t|\n\t<The entered " + n + "rd parameter '" + finder +"' is NOT 'distinct'.>\n" +
+                    "\t<The entered " + n + "rd parameter '" + finder + "' is NOT 'reverse'.>\n" +
+                    "\t<The entered " + n + "rd parameter '" + finder + "' was disregarded.>\n" +
+                    "\t<The "+ n +"rd parameter should be a part of speech or 'distinct' or 'reverse'.>\n\t|");
+
         }
         else if(!reverse4.contains(finder) && n==4){
-            System.out.println("Speech error" + n + "Attempt");
+            System.out.println("\t|\n\t<The entered " + n + "th parameter '" + finder +"' is NOT 'reverse'.>\n" +
+                            "\t<The entered " + n + "th parameter '" + finder + "' was disregarded.>\n" +
+                            "\t<The "+ n +"th parameter should be a part of speech or 'distinct' or 'reverse'.>\n\t|");
         }
-
-
     }
     private void notAvailable() {
         System.out.println("\t|\n \t<NOT FOUND> To be considered for the next release. Thank you.\n \t|");

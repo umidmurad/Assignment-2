@@ -1,7 +1,7 @@
 public class Enum {
 
 
-    enum Dictionary {
+    enum Dictionary { //61 Definition + 19 Keywords
         ARROW("Arrow", "noun", "Here is one arrow: <IMG> -=>> </IMG>"),
         BOOK1("Book", "noun", "A set of pages."), // p = 0, def = 1
         BOOK2("Book", "noun", "A written work published in printed or electronic form."),

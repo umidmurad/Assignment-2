@@ -13,7 +13,7 @@ public class DataLoader {
     //// copyAllWords will be used to change values without changing original (deep copy)
     HashMap<String, ArrayList<String[]>> copyAllWords = new HashMap<>();
 
-
+//If one word is inputted
     public void firstCase(String word) {
         if (allWords.containsKey(word)) {
             copyAllWords.put(word, allWords.get(word));
@@ -21,7 +21,7 @@ public class DataLoader {
             copyAllWords.clear();
         } else notAvailable();
     }
-
+//if two words are inputted, merger function will check for correctness, then call the desired method.
     public void secondCase(String word, String spch) {
         if (allWords.containsKey(word)) {
             copyAllWords.put(word, allWords.get(word));
@@ -31,7 +31,7 @@ public class DataLoader {
         } else notAvailable();
     }
 
-
+//if three words are inputted
     public void thirdCase(String word, String spch, String d_r) {
         if (allWords.containsKey(word)) {
             copyAllWords.put(word, allWords.get(word));
@@ -122,7 +122,8 @@ public class DataLoader {
         holder[1] = returner;
         return holder; //returning if entry was a valid (true or false) and the entry itself
     }
-    // errorChecker will check if order of words inputted is right
+    /*Error Methods down below
+    ErrorChecker will check if order of words inputted is right */
     private void errorChecker(String finder, int n) {
         finder=finder.toLowerCase();
         if (!spchType2.contains(finder) && n==2) {
@@ -145,6 +146,8 @@ public class DataLoader {
                             "\t<The "+ n +"th parameter should be a part of speech or 'distinct' or 'reverse'.>\n\t|");
         }
     }
+
+    //notAvailable is being printed when word we are looking for does not exist.
     private void notAvailable() {
         System.out.println("\t|\n \t<NOT FOUND> To be considered for the next release. Thank you.\n \t|");
         Menu.guidePrinter();
@@ -161,7 +164,7 @@ public class DataLoader {
         }
         copyAllWords.replace(word, values);
     }
-
+    //Collection class is used to reverse the ArrayList
     private void reverse(String word) {
         ArrayList<String[]> values = (ArrayList<String[]>) copyAllWords.get(word).clone();
         Collections.reverse(values); //this line makes the list reversed
@@ -187,6 +190,7 @@ public class DataLoader {
         }
         return values;
     }
+
     private void filler(){
         spchType2.add("verb");
         spchType2.add("noun");

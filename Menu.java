@@ -18,6 +18,7 @@ public class Menu {
                 continue;
             }
             ArrayList<String> separator = optionReader(holder);
+            //This switch method will separate amount of words inputted and pass it to desired case.
             switch(separator.size()) {
                 case 1:
                     dataloader.firstCase(separator.get(0));
@@ -44,6 +45,7 @@ public class Menu {
                 "\t 3. An optional 'distinct' -then 4. An optional 'reverse'\n \t|";
         System.out.println(guide);
     }
+
     /* -Will simply separate users input into an array separated by " ". if an extra " "
       is inputted. Returns an ArrayList<String>, each index holds a search option, i.e (reverse, distinct, reVERSE)
     */

@@ -164,7 +164,7 @@ public class DataLoader {
         }
         if(values.size() == 0){ // if part of spch we are looking for does not exist
             notAvailable();
-            copyAllWords.replace(word,values);
+            copyAllWords.replace(word,values); // values list is empty, so nothing will print
             return;
         }
         copyAllWords.replace(word,values); // if part of spch does exist

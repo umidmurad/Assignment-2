@@ -158,11 +158,16 @@ public class DataLoader {
         ArrayList<String[]> values = (ArrayList<String[]>) copyAllWords.get(word).clone();
         for (int i = 0; i < values.size(); i++) {
             if (!values.get(i)[0].equals(spch)) {
-                values.remove(i); // This line will delete duplicated definition
+                values.remove(i);
                 i--;
             }
         }
-        copyAllWords.replace(word, values);
+        if(values.size() == 0){ // if part of spch we are looking for does not exist
+            notAvailable();
+            copyAllWords.replace(word,values);
+            return;
+        }
+        copyAllWords.replace(word,values); // if part of spch does exist
     }
     //Collection class is used to reverse the ArrayList
     private void reverse(String word) {

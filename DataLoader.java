@@ -137,13 +137,13 @@ public class DataLoader {
             System.out.println("\t|\n\t<The entered " + n + "rd parameter '" + finder +"' is NOT 'distinct'.>\n" +
                     "\t<The entered " + n + "rd parameter '" + finder + "' is NOT 'reverse'.>\n" +
                     "\t<The entered " + n + "rd parameter '" + finder + "' was disregarded.>\n" +
-                    "\t<The "+ n +"rd parameter should be a part of speech or 'distinct' or 'reverse'.>\n\t|");
+                    "\t<The "+ n +"rd parameter should be 'distinct' or 'reverse'.>\n\t|");
 
         }
         else if(!reverse4.contains(finder) && n==4){
             System.out.println("\t|\n\t<The entered " + n + "th parameter '" + finder +"' is NOT 'reverse'.>\n" +
                             "\t<The entered " + n + "th parameter '" + finder + "' was disregarded.>\n" +
-                            "\t<The "+ n +"th parameter should be a part of speech or 'distinct' or 'reverse'.>\n\t|");
+                            "\t<The "+ n +"th parameter should be 'reverse'.>\n\t|");
         }
     }
 
